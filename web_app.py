@@ -67,7 +67,7 @@ if pet_image is not None:
     
     # check image format
     image_path = 'tmp/' + pet_image.name
-    if ('.jpg' not in image_path) and ('.jpeg' not in image_path) and ('.bmp' not in image_path):
+    if ('.jpg' not in image_path) and ('.JPG' not in image_path) and ('.jpeg' not in image_path) and ('.bmp' not in image_path):
         st.error('Please upload .jpeg, .jpg or .bmp file.')
     else:
     
