@@ -174,11 +174,6 @@ if st.button('Compute pawpularity'):
             del config, model, augs, image
             gc.collect()
             
-            # delete image(s)
-            image_files = os.listdir('tmp/')
-            for file in image_files:
-                os.remove('tmp/' + file)
-            
             # celebrate            
             st.success('Well done! Thanks for scoring your pet :)')
             
