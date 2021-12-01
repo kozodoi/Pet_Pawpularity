@@ -84,7 +84,7 @@ choice = st.radio("2. Make the result public?", ["Yes. Others may see your pet p
 # model selection
 model_name = st.selectbox(
     '3. Choose a model for scoring your pet.',
-    ['EfficientNet B3', 'EfficientNet B5', 'Swin Transformer'])
+    ['EfficientNet B3', 'Swin Transformer'])
 
 
 ##### MODELING
