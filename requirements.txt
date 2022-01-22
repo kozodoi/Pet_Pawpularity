@@ -8,4 +8,4 @@ scikit-learn==0.24.1
 opencv-python-headless==4.5.1.48
 pillow==8.3.2
 requests==2.25.1
-streamlit==1.2.0
+streamlit==1.4.0
