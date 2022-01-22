@@ -1,8 +1,8 @@
 # How Cute is Your Pet?
 
-Top-4% solution to the [PetFinder Pawpularity Contest](https://www.kaggle.com/c/petfinder-pawpularity-score/overview) Kaggle competition and interactive web app for estimating cuteness of custom pet photos.
+Top-4% solution to the [PetFinder Pawpularity Contest](https://www.kaggle.com/c/petfinder-pawpularity-score/overview) and interactive web app for estimating cuteness of custom pet photos.
 
-![cover](https://storage.googleapis.com/kaggle-competitions/kaggle/25383/logos/header.png?t=2021-08-31-18-49-29)
+![cover](https://github.com/kozodoi/Pet_Pawpularity/blob/main/app/header.png?raw=true-08-31-18-49-29)
 
 
 ## Summary
