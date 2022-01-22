@@ -16,7 +16,7 @@ import torch
 from scipy.stats import percentileofscore
 
 # custom libraries
-sys.path.append('code')
+sys.path.append('app/code')
 from model import get_model
 from augmentations import get_augs
 
@@ -66,7 +66,7 @@ pet_image = st.file_uploader("1. Upload your pet photo.")
 if pet_image is not None:
     
     # check image format
-    image_path = 'tmp/' + pet_image.name
+    image_path = 'app/tmp/' + pet_image.name
     if ('.jpg' not in image_path) and ('.JPG' not in image_path) and ('.jpeg' not in image_path) and ('.bmp' not in image_path):
         st.error('Please upload .jpeg, .jpg or .bmp file.')
     else:
@@ -95,18 +95,19 @@ if st.button('Compute pawpularity'):
     # check if image is uploaded
     if pet_image is None:
         st.error('Please upload a pet image first.')
+        
     else:
 
         # specify paths
         if model_name == 'EfficientNet B3':
             weight_path = 'https://github.com/kozodoi/pet_pawpularity/releases/download/0.1/enet_b3.pth'
-            model_path  = 'models/enet_b3/'
+            model_path  = 'app/models/enet_b3/'
         elif model_name == 'EfficientNet B5':
             weight_path = 'https://github.com/kozodoi/pet_pawpularity/releases/download/0.1/enet_b5.pth'
-            model_path  = 'models/enet_b5/'
+            model_path  = 'app/models/enet_b5/'
         elif model_name == 'Swin Transformer':
             weight_path = 'https://github.com/kozodoi/pet_pawpularity/releases/download/0.1/swin_base.pth'
-            model_path  = 'models/swin_base/' 
+            model_path  = 'app/models/swin_base/' 
             
         # download model weights
         if not os.path.isfile(model_path + 'pytorch_model.pth'):
@@ -153,22 +154,22 @@ if st.button('Compute pawpularity'):
             if choice == "Yes. Others may see your pet photo.":
                 
                 # load results
-                results = pd.read_csv("results.csv")
+                results = pd.read_csv("app/results.csv")
                 
                 # save resized image
                 example_img  = cv2.imread(image_path)
                 example_img  = cv2.cvtColor(example_img, cv2.COLOR_BGR2RGB)
-                example_path = "images/example_{}.jpg".format(len(results) + 1)
+                example_path = "app/images/example_{}.jpg".format(len(results) + 1)
                 cv2.imwrite(example_path, img = example_img)
                 
                 # write score to results
                 row     = pd.DataFrame({"path": [example_path], "score": [score], "model": [model_name]})
                 results = pd.concat([results, row], axis = 0)
-                results.to_csv("results.csv",  index = False)
+                results.to_csv("app/results.csv",  index = False)
                 
                 # delete old image
-                if os.path.isfile("images/example_{}.jpg".format(len(results) - 3)):
-                    os.remove("images/example_{}.jpg".format(len(results) - 3))
+                if os.path.isfile("app/images/example_{}.jpg".format(len(results) - 3)):
+                    os.remove("app/images/example_{}.jpg".format(len(results) - 3))
                 
             # clear memory
             del config, model, augs, image
@@ -185,10 +186,10 @@ st.header('Recent results')
 with st.expander('See results for three most recently scored pets'):
     
     # find most recent files
-    results = pd.read_csv("results.csv")
+    results = pd.read_csv("app/results.csv")
     if len(results) > 3:
-        results = results.tail(3).reset_index(drop = True)
-                
+        results = results.tail(3).reset_index(drop = True)        
+        
     # display images in columns
     cols = st.columns(len(results))
     for col_idx, col in enumerate(cols):
@@ -197,7 +198,7 @@ with st.expander('See results for three most recently scored pets'):
             example_img = cv2.imread(results['path'][col_idx])
             example_img = cv2.resize(example_img, (256, 256))
             st.image(example_img) 
-            st.write('**Model:** ',       results['model'][col_idx])
+            st.write('**Model:** ', results['model'][col_idx])
 
 
 ##### DOCUMENTATION
@@ -208,9 +209,9 @@ st.header('More information')
 # models
 with st.expander('Learn more about the models'):
     st.write('The app uses one of the two computer vision models to score the pet photo. The models are implemented in PyTorch.')
-    st.table(pd.DataFrame({'model': ['Swin Transfomer', 'EfficientNet B3', 'EfficientNet B5'],
-                           'architecture': ['swin_large_patch4_window7_224', 'tf_efficientnet_b3_ns', 'tf_efficientnet_b5_ns'],
-                           'image size': ['224 x 224', '300 x 300', '456 x 456']}))
+    st.table(pd.DataFrame({'model': ['Swin Transfomer', 'EfficientNet B3'],
+                           'architecture': ['swin_base_patch4_window7_224', 'tf_efficientnet_b3_ns'],
+                           'image size': ['224 x 224', '300 x 300']}))
     
 # metric
 with st.expander('Learn more about the metric'):
@@ -236,4 +237,4 @@ st.write("Check out [my website](https://kozodoi.me) for ML blog, academic publi
 st.write("[![Linkedin](https://img.shields.io/badge/-LinkedIn-306EA8?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kozodoi/)](https://www.linkedin.com/in/kozodoi/) [![Twitter](https://img.shields.io/badge/-Twitter-4B9AE5?style=flat&logo=Twitter&logoColor=white&link=https://www.twitter.com/n_kozodoi)](https://www.twitter.com/n_kozodoi) [![Kaggle](https://img.shields.io/badge/-Kaggle-5DB0DB?style=flat&logo=Kaggle&logoColor=white&link=https://www.kaggle.com/kozodoi)](https://www.kaggle.com/kozodoi) [![GitHub](https://img.shields.io/badge/-GitHub-2F2F2F?style=flat&logo=github&logoColor=white&link=https://www.github.com/kozodoi)](https://www.github.com/kozodoi) [![Google Scholar](https://img.shields.io/badge/-Google_Scholar-676767?style=flat&logo=google-scholar&logoColor=white&link=https://scholar.google.com/citations?user=58tMuD0AAAAJ&amp;hl=en)](https://scholar.google.com/citations?user=58tMuD0AAAAJ&amp;hl=en) [![ResearchGate](https://img.shields.io/badge/-ResearchGate-59C3B5?style=flat&logo=researchgate&logoColor=white&link=https://www.researchgate.net/profile/Nikita_Kozodoi)](https://www.researchgate.net/profile/Nikita_Kozodoi) [![Tea](https://img.shields.io/badge/-Buy_me_a_tea-yellow?style=flat&logo=buymeacoffee&logoColor=white&link=https://www.buymeacoffee.com/kozodoi)](https://www.buymeacoffee.com/kozodoi)")
 
 # copyright
-st.text("© 2021 Nikita Kozodoi")
+st.text("© 2022 Nikita Kozodoi")

@@ -1,0 +1,4 @@
+path,score,model
+app/images/example_8.jpg,42.03,EfficientNet B3
+app/images/example_9.jpg,32.07,EfficientNet B3
+app/images/example_10.jpg,32.54,Swin Transformer
