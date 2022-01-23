@@ -1,6 +1,6 @@
 # How Cute is Your Pet?
 
-Top-4% solution to the [PetFinder Pawpularity Contest](https://www.kaggle.com/c/petfinder-pawpularity-score/overview) and interactive web app for estimating cuteness of custom pet photos.
+Top-4% solution to the [PetFinder Pawpularity Contest](https://www.kaggle.com/c/petfinder-pawpularity-score/overview) and web app for estimating cuteness of your pet photos.
 
 ![cover](https://github.com/kozodoi/Pet_Pawpularity/blob/main/app/header.png?raw=true-08-31-18-49-29)
 
@@ -48,7 +48,7 @@ The file `requirements.txt` provides the list of dependencies for the web app.
 ### Reproducing solution
 
 The solution can be reproduced in the following steps:
-1. Run pretraining notebooks `pretraining_v0.ipynb` - `pretraining_v2.ipynb` to obtain pre-trained weights of base models.
+1. Run pretraining notebooks `pretraining_v1.ipynb` - `pretraining_v3.ipynb` to obtain pre-trained weights of base models.
 2. Run training / fine-tuning notebooks `training_v01.ipynb` `pretraining_v65.ipynb` to obtain final model weights.
 3. Run the inference notebook `inference.ipynb` to extract and ensemble predictions.
 
