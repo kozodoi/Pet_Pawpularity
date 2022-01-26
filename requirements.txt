@@ -6,6 +6,6 @@ numpy==1.19.2
 pandas==1.2.3
 scikit-learn==0.24.1
 opencv-python-headless==4.5.1.48
-pillow==8.3.2
+pillow==9.0.0
 requests==2.25.1
 streamlit==1.4.0
