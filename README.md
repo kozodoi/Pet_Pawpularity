@@ -1,8 +1,13 @@
 # How Cute is Your Pet?
 
-Top-4% solution to the [PetFinder Pawpularity Contest](https://www.kaggle.com/c/petfinder-pawpularity-score/overview) and web app for estimating cuteness of your pet photos.
+Top-4% solution to the [PetFinder Pawpularity Contest](https://www.kaggle.com/c/petfinder-pawpularity-score/overview) and [web app](https://share.streamlit.io/kozodoi/pet_pawpularity/main/web_app.py) for estimating cuteness of your pet photos.
 
 ![cover](https://github.com/kozodoi/Pet_Pawpularity/blob/main/app/header.png?raw=true-08-31-18-49-29)
+
+- [Summary](#summary)
+- [Demo app](#demo-app)
+- [Project structure](#project-structure)
+- [Working with the repo](#working-with-the-repo)
 
 
 ## Summary
@@ -16,7 +21,7 @@ My solution is an ensemble of CNNs and transformer models implemented in `PyTorc
 
 ## Demo app
 
-This project features [an interactive web app](https://share.streamlit.io/kozodoi/pet_pawpularity/main/web_app.py) that estimates Pawpularity of custom pet photos. You can simply upload your pet photo and learn the predicted cuteness score! The app uses transformers and CNNs to make predictions.
+This project features [an interactive web app](https://share.streamlit.io/kozodoi/pet_pawpularity/main/web_app.py) that estimates Pawpularity of your pet photos. You can simply upload your pet photo and learn the predicted cuteness score! The app uses transformers and CNNs to make predictions.
 
 ![web_app](https://i.postimg.cc/90g241GT/Screen-2021-11-23-at-12-20-20.jpg)
 
