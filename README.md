@@ -23,7 +23,7 @@ My solution is an ensemble of CNNs and transformer models implemented in `PyTorc
 
 This project features [an interactive web app](https://share.streamlit.io/kozodoi/pet_pawpularity/main/web_app.py) that estimates Pawpularity of your pet photos. You can simply upload your pet photo and learn the predicted cuteness score! The app uses transformers and CNNs to make predictions.
 
-![web_app](https://i.postimg.cc/90g241GT/Screen-2021-11-23-at-12-20-20.jpg)
+![web_app](https://i.postimg.cc/vHr83Tkg/ezgif-com-gif-maker-3.gifg)
 
 
 ## Project structure
