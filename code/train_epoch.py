@@ -19,11 +19,14 @@ def train_epoch(loader,
                 CFG):
         
     '''
-    Training epoch
+    Run training epoch
     '''
         
     ##### PREPARATIONS
-       
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    
     # switch regime
     model.train()
 

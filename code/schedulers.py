@@ -12,6 +12,9 @@ def get_scheduler(CFG, optimizer):
     Get scheduler
     '''
     
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    
     # constant
     if CFG['scheduler'] == 'constant':
         scheduler = get_constant_schedule_with_warmup(optimzier        = optimizer, 

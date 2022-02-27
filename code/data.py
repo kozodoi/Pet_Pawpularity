@@ -71,6 +71,11 @@ def get_data(df, fold, CFG, accelerator, df_old = None, silent = False, debug = 
     '''
     Get training and validation data
     '''
+    
+    # tests
+    assert isinstance(df, pd.DataFrame), 'df has to be a pandas dataframe'
+    assert isinstance(fold,  int),       'fold has to be an integer'
+    assert isinstance(CFG, dict),        'CFG has to be a dict with parameters'
 
     # load splits
     df_train = df.loc[df.fold != fold].reset_index(drop = True)
@@ -117,6 +122,11 @@ def get_loaders(df_train, df_valid, CFG, accelerator, labeled = True, shuffle = 
     '''
     Get training and validation dataloaders
     '''
+    
+    # tests
+    assert isinstance(df_train, pd.DataFrame), 'df_train has to be a pandas dataframe'
+    assert isinstance(df_valid, pd.DataFrame), 'df_valid has to be a pandas dataframe'
+    assert isinstance(CFG, dict),              'CFG has to be a dict with parameters'
 
     ##### DATASETS
         
@@ -166,7 +176,7 @@ def find_duplicates(train_ids, valid_ids):
     '''
     Return list of train IDs of the duplicates
     '''
-    
+        
     # list of duplicate pairs
     # adapted from https://www.kaggle.com/schulta/petfinder-identify-duplicates-and-share-findings
     duplicate_list = {('01430d6ae02e79774b651175edd40842', '6dc1ae625a3bfb50571efedc0afc297c'),

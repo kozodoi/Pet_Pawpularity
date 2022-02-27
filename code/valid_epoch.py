@@ -22,6 +22,9 @@ def valid_epoch(loader,
     
     ##### PREPARATIONS
     
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+
     # TTA options
     if num_tta is None:
         num_tta = CFG['num_tta']

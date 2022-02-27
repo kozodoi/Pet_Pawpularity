@@ -7,6 +7,9 @@ def get_augs(CFG):
     '''
     Get augmentations
     '''
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
 
     # normalization
     if not CFG['normalize']:

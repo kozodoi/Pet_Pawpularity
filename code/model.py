@@ -17,6 +17,13 @@ def get_model(CFG,
               pretrained = None, 
               silent     = False):
     
+    '''
+    Instantiate the model
+    '''
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    
     # pretrained weights
     if pretrained is None:
         pretrained = CFG['pretrained']

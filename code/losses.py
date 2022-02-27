@@ -8,7 +8,10 @@ def get_losses(CFG, accelerator):
     '''
     Get loss function
     '''
-
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    
     # define training loss
     if CFG['loss_fn'] == 'MSE':
         train_criterion = nn.MSELoss()

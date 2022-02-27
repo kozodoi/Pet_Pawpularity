@@ -21,6 +21,10 @@ def run_inference(df,
     '''
     Run inference loop
     '''
+    
+    # tests
+    assert isinstance(CFG, dict),        'CFG has to be a dict with parameters'
+    assert isinstance(df, pd.DataFrame), 'df has to be a pandas dataframe'
         
     # placeholders
     oof = None

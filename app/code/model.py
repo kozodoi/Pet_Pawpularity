@@ -5,6 +5,13 @@ import torch.nn as nn
 
 def get_model(CFG, pretrained = None):
     
+    '''
+    Get model
+    '''
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    
     # model class
     class Model(nn.Module):
 
@@ -30,7 +37,7 @@ def get_model(CFG, pretrained = None):
     # pretrained weights
     if pretrained is None:
         pretrained = CFG['pretrained']
-                      
+        
     # get model
     model = Model(CFG, pretrained)
             

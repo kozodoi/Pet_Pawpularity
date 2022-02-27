@@ -19,6 +19,11 @@ def plot_predictions(CFG, fold, sample_size = 5):
     '''
     Display right and wrong predictions
     '''
+    
+    # tests
+    assert isinstance(CFG, dict),  'CFG has to be a dict with parameters'
+    assert isinstance(fold,  int), 'fold has to be an integer'
+    assert sample_size > 0,        'sample_size has to be a positive int'
 
     # initialize accelerator
     accelerator = Accelerator(device_placement = True,

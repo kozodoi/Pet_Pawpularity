@@ -9,13 +9,16 @@ def get_optimizer(CFG, model):
     '''
     Get optimizer
     '''
-              
+
     ##### PREPARATIONS
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
     
     # params
     wd = CFG['decay']
     lr = CFG['lr']
- 
+
     # params in head
     parameters = [{'params':       [p for n, p in model.named_parameters() if 'backbone' not in n and p.requires_grad],
                    'weight_decay': wd,

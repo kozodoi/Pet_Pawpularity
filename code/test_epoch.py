@@ -16,10 +16,13 @@ def test_epoch(loader,
                num_tta = None):
     
     '''
-    Test epoch
+    Run test epoch
     '''
     
     ##### PREPARATIONS
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
     
     # TTA options
     if num_tta is None:
